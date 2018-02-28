@@ -8,28 +8,78 @@
 
 import Foundation
 
-/// Set of `Person`s
+/// Evaluation type
+/// Contains all the state for an evaluation before neurologue's appointment (the evaluation last for 5 days).
 ///
-/// *add*: `PersonSet` x `Person` -> `PersonSet` -- add a `Person` to the collection
+
+/// ---- Proprieties
 ///
-/// *remove*: `PersonSet` x `Person` -> `PersonSet` -- remove a `Person` to the collection
+/// appointment : Appointment
 ///
-/// *count*: `PersonSet` -> `Int` -- number of `Person` in the collection
+/// morningHour
 ///
-/// *contains:person*: `PersonSet` x `Person` -> `Bool` -- `true` if this `Person` belongs to collection
+/// eveningHour
+
+/// ---- Methods
 ///
-/// *look:forPersons*: `PersonSet` x `Person` -> `PersonSet` -- return a new `PersonSet` with all `Person` with same first name and last name of initial `PersonSet`
+
+/// init
 ///
-/// *contains:personWithFirstname*: `PersonSet` x `String` -> `Bool` -- `true` if this a `Person` with the same first name belongs to collection
+/// initialize an 'Evaluation'. Create all the dose associate to this evaluation.
 ///
-/// *look:forPersonsWithFirstname*: `PersonSet` x `String` -> `PersonSet` -- return a new `PersonSet` with all `Person` with first name given in parameter
+/// - Parameters:
+///   - appointment: `Appointment` first name of `Person`
+///   - morningHour:  `Date` reveille of the 'Patient'
+///   - eveningHour: `Date` bedtime of the 'Patient'
+
+
+/// createStates
 ///
-/// *contains:personWithLastname*: `PersonSet` x `String` -> `Bool` -- `true` if this a `Person` with the same lastname name belongs to collection
+/// create all the states necessary for this evaluation according to the frequency.
 ///
-/// *look:forPersonsWithLastname*: `PersonSet` x `String` -> `PersonSet` -- return a new `PersonSet` with all `Person` with last name given in parameter
+/// - Parameters:
+///   - frequency: `Int` the frequency that the state need to be evaluate
+/// - Returns : 'Evaluation' with all his 'State' initializate
+
+
+/// count
 ///
-/// *contains:personWithFullname*: `PersonSet` x `String` -> `Bool` -- `true` if this a `Person` with the same full name belongs to collection
+/// number of `State` in the collection
 ///
-/// *look:forPersonsWithFullname*: `PersonSet` x `String` -> `PersonSet` -- return a new `PersonSet` with all `Person` with full name given in parameter
+/// - Returns : 'Int' number of 'State' in the 'Evaluation'
+
+
+/// getBeginDate
 ///
-/// *makeIterator*: returns an iterator on collection
+/// give the beggining date of the evaluation
+///
+/// - Returns : 'Date' the beggining date of the evaluation
+
+
+/// getStatesEvaluated
+///
+/// give all the states evalaluted
+///
+///
+/// - Returns : 'Set?' set of 'State' evaluated
+
+
+/// makeIterator
+///
+/// make an iterator on the set
+///
+/// - Returns: a new iterator on the set initialized on the first element
+
+
+/// getState
+///
+/// give the state corresponding to the index enter in parameter
+///
+/// - Parameters:
+///   - index: `Int`
+/// - Returns : 'State' the state correspondind to the index
+
+
+class Evaluation: Sequence {
+
+}
