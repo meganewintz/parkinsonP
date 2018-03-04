@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D057D21204C503E003016E2 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D057D1B204C503D003016E2 /* Appointment.swift */; };
+		3D057D22204C503E003016E2 /* DoseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D057D1C204C503D003016E2 /* DoseSet.swift */; };
+		3D057D23204C503E003016E2 /* Treatment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D057D1D204C503E003016E2 /* Treatment.swift */; };
+		3D057D24204C503E003016E2 /* TreatmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D057D1E204C503E003016E2 /* TreatmentSet.swift */; };
+		3D057D25204C503E003016E2 /* AppointmentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D057D1F204C503E003016E2 /* AppointmentSet.swift */; };
+		3D057D26204C503E003016E2 /* Dose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D057D20204C503E003016E2 /* Dose.swift */; };
 		3D48F902204730F8001B8199 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F901204730F8001B8199 /* State.swift */; };
 		3D48F90420473439001B8199 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F90320473439001B8199 /* Activity.swift */; };
 		3D48F90620473447001B8199 /* ActivitiesSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F90520473447001B8199 /* ActivitiesSet.swift */; };
@@ -40,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D057D1B204C503D003016E2 /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		3D057D1C204C503D003016E2 /* DoseSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoseSet.swift; sourceTree = "<group>"; };
+		3D057D1D204C503E003016E2 /* Treatment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Treatment.swift; sourceTree = "<group>"; };
+		3D057D1E204C503E003016E2 /* TreatmentSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreatmentSet.swift; sourceTree = "<group>"; };
+		3D057D1F204C503E003016E2 /* AppointmentSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentSet.swift; sourceTree = "<group>"; };
+		3D057D20204C503E003016E2 /* Dose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dose.swift; sourceTree = "<group>"; };
 		3D48F901204730F8001B8199 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		3D48F90320473439001B8199 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		3D48F90520473447001B8199 /* ActivitiesSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesSet.swift; sourceTree = "<group>"; };
@@ -147,6 +159,12 @@
 				3D48F90520473447001B8199 /* ActivitiesSet.swift */,
 				3D48F90720473456001B8199 /* Practice.swift */,
 				3D48F90920473463001B8199 /* PracticesSet.swift */,
+				3D057D20204C503E003016E2 /* Dose.swift */,
+				3D057D1B204C503D003016E2 /* Appointment.swift */,
+				3D057D1F204C503E003016E2 /* AppointmentSet.swift */,
+				3D057D1C204C503D003016E2 /* DoseSet.swift */,
+				3D057D1D204C503E003016E2 /* Treatment.swift */,
+				3D057D1E204C503E003016E2 /* TreatmentSet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,10 +303,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D057D26204C503E003016E2 /* Dose.swift in Sources */,
 				3D48F90420473439001B8199 /* Activity.swift in Sources */,
+				3D057D24204C503E003016E2 /* TreatmentSet.swift in Sources */,
 				3D9A54142045C97E00A4E7E1 /* Evaluation.swift in Sources */,
 				3D48F90820473456001B8199 /* Practice.swift in Sources */,
+				3D057D21204C503E003016E2 /* Appointment.swift in Sources */,
+				3D057D25204C503E003016E2 /* AppointmentSet.swift in Sources */,
 				3D8B719E2045C47900D0B43A /* ViewController.swift in Sources */,
+				3D057D22204C503E003016E2 /* DoseSet.swift in Sources */,
+				3D057D23204C503E003016E2 /* Treatment.swift in Sources */,
 				3D8B719C2045C47900D0B43A /* AppDelegate.swift in Sources */,
 				3D48F902204730F8001B8199 /* State.swift in Sources */,
 				3D48F90620473447001B8199 /* ActivitiesSet.swift in Sources */,
