@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Treatment type
+/// Appointment type
 ///
 
 /// ---- Properties
@@ -28,6 +28,6 @@ import Foundation
 /// note : String
 
 
-class Treatment {
+class Appointment {
     
 }
