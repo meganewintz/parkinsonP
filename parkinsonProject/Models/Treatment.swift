@@ -80,6 +80,6 @@ import Foundation
 ///   - i:Int
 
 
-class Treatment {
+class Treatment	 {
     
 }

@@ -20,6 +20,14 @@ import Foundation
 /// dateFirstReminder : Date
 
 
-class Treatment {
+class Dose {
     
+    public var isTaken : Bool
+    public var reminderNb : Int
+    public var dateFirstReminder : Date?
+    
+    init(){
+        isTaken = false
+        reminderNb = 0
+    }
 }

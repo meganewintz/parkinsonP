@@ -89,6 +89,6 @@ import Foundation
 ///
 /// Returns : 'TreatmentSet' the current instance without the delegate in parameter
 
-class ActivitiesSet {
+class TreatmentSet {
     
 }

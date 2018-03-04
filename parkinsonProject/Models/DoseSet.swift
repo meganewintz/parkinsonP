@@ -87,6 +87,6 @@ import Foundation
 ///
 /// Return : Float
 
-class ActivitiesSet {
+class DoseSet {
     
 }

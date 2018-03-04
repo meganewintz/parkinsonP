@@ -99,6 +99,93 @@ import Foundation
 ///
 /// Returns : 'AppointmentSet' the current instance without the delegate in parameter
 
-class ActivitiesSet {
+class AppointmentSet {
     
+    var appointmentSet : [Appointment]
+    var delegates : [AppointmentSetDelegate]
+    
+    init(){
+        appointmentSet = [Appointment]()
+        delegates = [AppointmentSetDelegate]()
+    }
+    
+    func addAppointment(appointment : Appointment) -> AppointmentSet {
+        appointmentSet.append(appointment)
+        for d : AppointmentSetDelegate in delegates {
+            d.appointmentAdded(appointment : appointment)
+        }
+        return self
+    }
+    
+    func removeAppointment(appointment : Appointment) -> AppointmentSet {
+        
+        if let index=appointmentSet.index(where: { $0 == appointment })
+        {
+            appointmentSet.remove(at: index)
+            for d : AppointmentSetDelegate in delegates {
+                d.appointmentDeleted(deletedAppointment : appointment)
+            }
+        }
+        return self
+    }
+    
+    func count() -> Int {
+        return appointmentSet.count
+    }
+    
+    func contains(appointment : Appointment) -> Bool {
+        return appointmentSet.contains(where: { $0 == appointment})
+    }
+    
+    
+    /// nextAppointment
+    ///
+    /// give the next appointment programed
+    ///
+    /// - Returns : Appointment
+    
+    func updateAppointment(old : Appointment, new : Appointment) -> AppointmentSet {
+        if let index=appointmentSet.index(where: { $0 == old })
+        {
+            appointmentSet[index] = new
+            for d : AppointmentSetDelegate in delegates {
+                d.appointmentUpdated(newValue: new)
+            }
+        }
+        return self
+    }
+    
+    
+    /// checkConflict
+    ///
+    /// return true if the appointment in parameter happens at the same time with another one in the set
+    ///
+    /// - Parameters:
+    ///   - appointment: Appointment
+    ///
+    /// Returns : true if the appointment in parameter happens at the same time with another one in the set
+    
+    
+    func addDelegate(delegate : AppointmentSetDelegate) -> AppointmentSet
+    {
+        if !delegates.contains(where: { $0 == delegate })
+        return self
+    }
+    
+    func removeDelegate(delegate : AppointmentSetDelegate) -> AppointmentSet {
+        if let index = delegates.index(where: { $0 == delegate })
+        {
+            delegates.remove(at: index)
+        }
+        return self
+    }
+    /// removeDelegate
+    ///
+    /// remove a delegate to this model
+    ///
+    /// - Parameters:
+    ///   - delegate: `AppointmentSetDelegate`
+    ///
+    /// Returns : 'AppointmentSet' the current instance without the delegate in parameter
+
 }
