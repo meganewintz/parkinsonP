@@ -55,7 +55,9 @@ class Appointment {
     }
     
     static func ==(lhs : Appointment, rhs : Appointment) -> Bool {
-        return lhs == rhs
+        return lhs.date == rhs.date &&
+            lhs.doctor == rhs.doctor &&
+            lhs.specialty == rhs.specialty
     }
     
     static func !=(lhs : Appointment, rhs : Appointment) -> Bool {
