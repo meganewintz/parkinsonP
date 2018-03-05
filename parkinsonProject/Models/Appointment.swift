@@ -8,26 +8,6 @@
 
 import Foundation
 
-/// Appointment type
-///
-
-/// ---- Properties
-///
-/// date : Date
-///
-/// doctor : String
-///
-/// specialty : string
-///
-/// address : String
-///
-/// phoneNumber : String
-///
-/// journeyTime : int
-///
-/// note : String
-
-
 class Appointment {
     
     public var date : Date

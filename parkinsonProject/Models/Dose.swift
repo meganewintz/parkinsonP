@@ -8,26 +8,32 @@
 
 import Foundation
 
-/// Dose type
-///
-
-/// ---- Properties
-///
-/// isTaken : bool
-///
-/// reminderNb : int
-///
-/// dateFirstReminder : Date
-
-
 class Dose {
     
     public var isTaken : Bool
     public var reminderNb : Int
     public var dateFirstReminder : Date?
     
+    
+    /// init
+    ///
+    /// initialize a 'Dose', no taken and no reminded.
+    ///
     init(){
         isTaken = false
         reminderNb = 0
+    }
+    
+    
+    /// dateNextReminder
+    ///
+    /// returns th date of the next reminder programmed if the initial date is programmed and not taken
+    func dateNextReminder() -> Date? {
+        guard dateFirstReminder != nil else { return nil }
+        if isTaken {
+            return nil
+        } else {
+            return dateFirstReminder.dateByAddingTimeInterval(5.0*60*(reminderNb))
+        }
     }
 }
