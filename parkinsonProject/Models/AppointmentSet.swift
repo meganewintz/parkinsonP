@@ -57,7 +57,7 @@ import Foundation
 ///
 /// give the next appointment programed
 ///
-/// - Returns : Appointment
+/// - Returns : Appointment?
 
 
 /// updateAppointment
@@ -82,7 +82,7 @@ import Foundation
 
 /// addDelegate
 ///
-/// add a delegate to this model
+/// add a delegate to this model if it is not already present
 ///
 /// - Parameters:
 ///   - delegate: `AppointmentSetDelegate`
@@ -138,11 +138,35 @@ class AppointmentSet {
     }
     
     
-    /// nextAppointment
-    ///
-    /// give the next appointment programed
-    ///
-    /// - Returns : Appointment
+    func nextAppointment() -> Appointment? {
+        guard appointmentSet.count > 0 else { return nil }
+        
+        // get only the future appointments
+        let currentDate = Date()
+        var futureAppointments = [Appointment]()
+        for appointment in appointmentSet {
+            if appointment.date > currentDate {
+                futureAppointments.append(appointment)
+            }
+        }
+        
+        if futureAppointments.count == 0 {
+            // no future appointment
+            return nil
+        } else {
+            // find the appointment which minimise the time interval between its date and the current date
+            var nearestAppointment = futureAppointments[0]
+            var smallestInterval = nearestAppointment.date - currentDate
+            for appointment in futureAppointments {
+                if appointment.date - currentDate < smallestInterval {
+                    smallestInterval = appointment.date - currentDate
+                    nearestAppointment = appointment
+                }
+            }
+            return nearestAppointment
+        }
+    }
+    
     
     func updateAppointment(old : Appointment, new : Appointment) -> AppointmentSet {
         if let index=appointmentSet.index(where: { $0 == old })
@@ -156,19 +180,15 @@ class AppointmentSet {
     }
     
     
-    /// checkConflict
-    ///
-    /// return true if the appointment in parameter happens at the same time with another one in the set
-    ///
-    /// - Parameters:
-    ///   - appointment: Appointment
-    ///
-    /// Returns : true if the appointment in parameter happens at the same time with another one in the set
-    
+    func checkConflict(appointment : Appointment) -> Bool {
+        return appointmentSet.contains(where : { $0.date == appointment.date })
+    }
     
     func addDelegate(delegate : AppointmentSetDelegate) -> AppointmentSet
     {
-        if !delegates.contains(where: { $0 == delegate })
+        if !delegates.contains(where: { $0 == delegate }){
+            delegates.append(delegate)
+        }
         return self
     }
     
@@ -179,13 +199,5 @@ class AppointmentSet {
         }
         return self
     }
-    /// removeDelegate
-    ///
-    /// remove a delegate to this model
-    ///
-    /// - Parameters:
-    ///   - delegate: `AppointmentSetDelegate`
-    ///
-    /// Returns : 'AppointmentSet' the current instance without the delegate in parameter
 
 }
