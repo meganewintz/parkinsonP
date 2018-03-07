@@ -13,3 +13,6 @@ protocol DoseSetDelegate {
     func doseAdded(dose : Dose)
     func doseUpdated(newValue : Dose)
 }
+
+func ==(lhs : DoseSetDelegate, rhs : DoseSetDelegate) -> Bool { return lhs == rhs }
+func !=(lhs : DoseSetDelegate, rhs : DoseSetDelegate) -> Bool { return lhs != rhs }

@@ -104,10 +104,10 @@ class AppointmentSet {
         } else {
             // find the appointment which minimise the time interval between its date and the current date
             var nearestAppointment = futureAppointments[0]
-            var smallestInterval = nearestAppointment.date - currentDate
+            var smallestInterval = nearestAppointment.date.timeIntervalSince(currentDate)
             for appointment in futureAppointments {
-                if appointment.date - currentDate < smallestInterval {
-                    smallestInterval = appointment.date - currentDate
+                if appointment.date.timeIntervalSince(currentDate) < smallestInterval {
+                    smallestInterval = appointment.date.timeIntervalSince(currentDate)
                     nearestAppointment = appointment
                 }
             }
