@@ -33,7 +33,10 @@ class Dose {
         if isTaken {
             return nil
         } else {
-            return dateFirstReminder.dateByAddingTimeInterval(5.0*60*(reminderNb))
+            return dateFirstReminder?.addingTimeInterval(Double(5*60*reminderNb))
         }
     }
 }
+
+func ==(lhs : Dose, rhs : Dose) -> Bool { return lhs == rhs }
+func !=(lhs : Dose, rhs : Dose) -> Bool { return lhs != rhs }

@@ -13,7 +13,7 @@ protocol AppointmentSetDelegate {
     func appointmentAdded(appointment : Appointment)
     func appointmentUpdated(newValue : Appointment)
     func appointmentDeleted(deletedAppointment : Appointment)
-    
-    static func ==(lhs : AppointmentSetDelegate, rhs : AppointmentSetDelegate) -> Bool
-    static func !=(lhs : AppointmentSetDelegate, rhs : AppointmentSetDelegate) -> Bool
 }
+
+func ==(lhs : AppointmentSetDelegate, rhs : AppointmentSetDelegate) -> Bool { return lhs == rhs }
+func !=(lhs : AppointmentSetDelegate, rhs : AppointmentSetDelegate) -> Bool { return lhs != rhs }

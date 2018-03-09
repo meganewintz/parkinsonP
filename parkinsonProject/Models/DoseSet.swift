@@ -73,8 +73,10 @@ class DoseSet {
         let currentDate = Date()
         var futureDoses = [Dose]()
         for dose in doses {
-            if let date = dose.dateNextReminder() && date > currentDate {
-                futureDoses.append(dose)
+            if let date = dose.dateNextReminder() {
+                if date > currentDate {
+                    futureDoses.append(dose)
+                }
             }
         }
         
@@ -83,11 +85,11 @@ class DoseSet {
             return nil
         } else {
             // find the dose which minimise the time interval between its date and the current date
-            var nearestDose = futureDose[0]
-            var smallestInterval = nearestDose - currentDate
+            var nearestDose = futureDoses[0]
+            var smallestInterval = nearestDose.dateNextReminder()!.timeIntervalSince(currentDate)
             for dose in futureDoses {
-                if dose.dateNextReminder() - currentDate < smallestInterval {
-                    smallestInterval = dose.dateNextReminder()
+                if dose.dateNextReminder()!.timeIntervalSince(currentDate) < smallestInterval {
+                    smallestInterval = dose.dateNextReminder()!.timeIntervalSince(currentDate)
                     nearestDose = dose
                 }
             }
@@ -105,7 +107,7 @@ class DoseSet {
     ///   - new: Dose
     /// - Returns : 'DoseSet' with the dose updated
     func updateDose(old : Dose, new : Dose) -> DoseSet {
-        if let index=doses.index(where : { $0 == dose }) {
+        if let index=doses.index(where : { $0 == old }) {
             doses[index] = new
             for d in delegates {
                 d.doseUpdated(newValue : new)
@@ -159,6 +161,6 @@ class DoseSet {
                 success += 1
             }
         }
-        return success as Float / count() * 100
+        return Float(success) / Float(count()) * 100
     }
 }
