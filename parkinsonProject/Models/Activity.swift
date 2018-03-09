@@ -38,4 +38,25 @@ import Foundation
 
 class Activity {
     
+    var name : String
+    var description: String
+    /// init
+    ///
+    /// initialize an 'Activity' with his name and his description
+    ///
+    /// - Parameters:
+    ///   - name: `String`
+    ///   - description:  `String`
+    init(name : String, description: String) {
+        self.name = name
+        self.description = description
+    }
+    
+    
+    /// dateNextPractice
+    ///
+    /// give the date of the next practice programed
+    ///
+    /// - Returns : 'Date' the date of the next practice programed
+
 }
